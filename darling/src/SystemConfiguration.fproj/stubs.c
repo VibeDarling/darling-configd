@@ -1,0 +1,165 @@
+#include <SystemConfiguration/SystemConfiguration.h>
+
+#define STUB() printf("STUB %s\n", __func__)
+
+const CFStringRef kSCDynamicStoreUseSessionKeys = CFSTR("UseSessionKeys");
+
+CFTypeID SCNetworkConnectionGetTypeID(void)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkConnectionScheduleWithRunLoop(SCNetworkConnectionRef ref, CFRunLoopRef rl, CFStringRef rlMode)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkConnectionUnscheduleFromRunLoop(SCNetworkConnectionRef ref, CFRunLoopRef rl, CFStringRef rlMode)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkConnectionStop(SCNetworkConnectionRef ref, Boolean force)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkConnectionStart(SCNetworkConnectionRef ref, CFDictionaryRef userOptions, Boolean linger)
+{
+    STUB();
+	return 0;
+}
+
+Boolean
+SCNetworkConnectionCopyUserPreferences		(
+						CFDictionaryRef				  __nullable	selectionOptions,
+						CFStringRef		__nonnull	* __nullable	serviceID,
+						CFDictionaryRef		__nonnull	* __nullable	userOptions
+						)			__OSX_AVAILABLE_STARTING(__MAC_10_3,__IPHONE_NA) {
+    STUB();
+	return 0;
+}
+
+SCNetworkConnectionRef SCNetworkConnectionCreateWithServiceID(CFAllocatorRef allocator, CFStringRef serviceID, SCNetworkConnectionCallBack cb, SCNetworkConnectionContext* ctxt)
+{
+    STUB();
+	return NULL;
+}
+
+CFTypeID SCNetworkReachabilityGetTypeID(void)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkReachabilityScheduleWithRunLoop(SCNetworkReachabilityRef ref, CFRunLoopRef rl, CFStringRef rlMode)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkReachabilityUnscheduleFromRunLoop(SCNetworkReachabilityRef ref, CFRunLoopRef rl, CFStringRef rlMode)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkReachabilitySetCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityCallBack cb, SCNetworkReachabilityContext* ctxt)
+{
+    STUB();
+	return 0;
+}
+
+Boolean SCNetworkReachabilityGetFlags(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags* flags)
+{
+    STUB();
+	return 0;
+}
+
+SCNetworkReachabilityRef SCNetworkReachabilityCreateWithName(CFAllocatorRef allocator, const char* nodeName)
+{
+    STUB();
+	return NULL;
+}
+
+SCNetworkReachabilityRef SCNetworkReachabilityCreateWithAddressPair(CFAllocatorRef allocator, const struct sockaddr* localAddress, const struct sockaddr* remoteAddress)
+{
+    STUB();
+	return NULL;
+}
+
+SCNetworkReachabilityRef SCNetworkReachabilityCreateWithAddress(CFAllocatorRef allocator, const struct sockaddr* remoteAddress)
+{
+    STUB();
+	return NULL;
+}
+
+CFStringRef SCDynamicStoreKeyCreateNetworkGlobalEntity(CFAllocatorRef allocator, CFStringRef domain, CFStringRef entity)
+{
+	STUB();
+	return NULL;
+}
+
+CFPropertyListRef SCDynamicStoreCopyValue(SCDynamicStoreRef store, CFStringRef key)
+{
+	STUB();
+	return NULL;
+}
+
+SCDynamicStoreRef SCDynamicStoreCreate(CFAllocatorRef allocator, CFStringRef name, SCDynamicStoreCallBack callout, SCDynamicStoreContext *context)
+{
+	STUB();
+	return NULL;
+}
+
+SCDynamicStoreRef __nullable SCDynamicStoreCreateWithOptions(CFAllocatorRef __nullable allocator, CFStringRef name, CFDictionaryRef __nullable storeOptions, SCDynamicStoreCallBack __nullable callout, SCDynamicStoreContext* __nullable context)
+{
+    STUB();
+	return NULL;
+};
+
+CFStringRef SCDynamicStoreKeyCreate(CFAllocatorRef allocator, CFStringRef fmt, ...)
+{
+	STUB();
+	return NULL;
+}
+
+Boolean SCDynamicStoreSetDispatchQueue(SCDynamicStoreRef store, dispatch_queue_t queue)
+{
+	STUB();
+	return FALSE;
+}
+
+Boolean SCDynamicStoreSetNotificationKeys(SCDynamicStoreRef store, CFArrayRef __nullable keys, CFArrayRef __nullable patterns) {
+	STUB();
+	return FALSE;
+}
+
+CFStringRef SCDynamicStoreKeyCreateComputerName(CFAllocatorRef allocator) {
+	STUB();
+	return NULL;
+};
+
+Boolean SCPreferencesSetComputerName(SCPreferencesRef	prefs, CFStringRef __nullable	name, CFStringEncoding	nameEncoding) {
+	STUB();
+	return FALSE;
+};
+
+Boolean SCPreferencesSetLocalHostName(SCPreferencesRef	prefs, CFStringRef __nullable	name) {
+	STUB();
+	return FALSE;
+};
+
+CFStringRef SCDynamicStoreKeyCreateHostNames(CFAllocatorRef allocator) {
+	STUB();
+	return NULL;
+};
+
+CFStringRef SCDynamicStoreKeyCreateNetworkInterfaceEntity(CFAllocatorRef allocator, CFStringRef domain, CFStringRef ifname, CFStringRef entity) {
+	STUB();
+	return NULL;
+};
