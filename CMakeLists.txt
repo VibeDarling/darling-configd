@@ -1,4 +1,4 @@
-# add_subdirectory(SystemConfiguration.fproj)
+add_subdirectory(SystemConfiguration.fproj)
 
 project(system_configuration)
 
