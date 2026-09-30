@@ -2,7 +2,11 @@
 #include <SystemConfiguration/SCNetworkConfiguration.h>
 #include <SystemConfiguration/SCNetworkConnection.h>
 
+#ifdef DEBUG
 #define STUB() printf("STUB %s\n", __func__)
+#else
+#define STUB() do {} while (0)
+#endif
 
 static const char* __ipv4_dummy = "ipv4";
 const SCNetworkInterfaceRef kSCNetworkInterfaceIPv4 = (SCNetworkInterfaceRef)&__ipv4_dummy;
