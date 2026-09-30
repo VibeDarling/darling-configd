@@ -1,7 +1,11 @@
 #include <SystemConfiguration/SystemConfiguration.h>
+#include <SystemConfiguration/SCNetworkConfiguration.h>
+#include <SystemConfiguration/SCNetworkConnection.h>
 
 #define STUB() printf("STUB %s\n", __func__)
 
+static const char* __ipv4_dummy = "ipv4";
+const SCNetworkInterfaceRef kSCNetworkInterfaceIPv4 = (SCNetworkInterfaceRef)&__ipv4_dummy;
 const CFStringRef kSCDynamicStoreUseSessionKeys = CFSTR("UseSessionKeys");
 
 CFTypeID SCNetworkConnectionGetTypeID(void)
@@ -163,3 +167,92 @@ CFStringRef SCDynamicStoreKeyCreateNetworkInterfaceEntity(CFAllocatorRef allocat
 	STUB();
 	return NULL;
 };
+
+SCNetworkInterfaceRef _SCNetworkInterfaceCreateWithBSDName(CFAllocatorRef allocator, CFStringRef bsdName)
+{
+	STUB();
+	return (SCNetworkInterfaceRef)CFRetain(bsdName);
+}
+
+CFStringRef SCNetworkInterfaceGetBSDName(SCNetworkInterfaceRef interface)
+{
+	STUB();
+	if (!interface) return NULL;
+	if (CFGetTypeID((CFTypeRef)interface) == CFStringGetTypeID()) {
+		return (CFStringRef)interface;
+	}
+	return CFSTR("en0");
+}
+
+CFStringRef SCNetworkInterfaceGetLocalizedDisplayName(SCNetworkInterfaceRef interface)
+{
+	STUB();
+	return CFSTR("Ethernet");
+}
+
+SCNetworkInterfaceRef SCNetworkInterfaceGetInterface(SCNetworkInterfaceRef interface)
+{
+	STUB();
+	return interface;
+}
+
+SCNetworkInterfaceRef SCNetworkServiceGetInterface(SCNetworkServiceRef service)
+{
+	STUB();
+	return (SCNetworkInterfaceRef)CFSTR("en0");
+}
+
+CFArrayRef SCNetworkInterfaceCopyAll(void)
+{
+	STUB();
+	CFStringRef en0 = CFSTR("en0");
+	return CFArrayCreate(kCFAllocatorDefault, (const void**)&en0, 1, &kCFTypeArrayCallBacks);
+}
+
+CFStringRef SCDynamicStoreKeyCreateNetworkInterface(CFAllocatorRef allocator, CFStringRef domain)
+{
+	STUB();
+	return CFStringCreateWithFormat(allocator, NULL, CFSTR("%@/%@"), domain, CFSTR("Network/Interface"));
+}
+
+CFStringRef SCDynamicStoreKeyCreateNetworkServiceEntity(CFAllocatorRef allocator, CFStringRef domain, CFStringRef serviceID, CFStringRef entity)
+{
+	STUB();
+	return CFStringCreateWithFormat(allocator, NULL, CFSTR("%@/Network/Service/%@/%@"), domain, serviceID, entity);
+}
+
+SCNetworkConnectionRef SCNetworkConnectionCreateWithService(CFAllocatorRef allocator, CFStringRef serviceID, SCNetworkConnectionCallBack callout, SCNetworkConnectionContext* context)
+{
+	STUB();
+	return NULL;
+}
+
+CFArrayRef SCNetworkConnectionCopyAvailableServices(void)
+{
+	STUB();
+	return CFArrayCreate(kCFAllocatorDefault, NULL, 0, &kCFTypeArrayCallBacks);
+}
+
+CFDictionaryRef SCNetworkConnectionCopyExtendedStatus(SCNetworkConnectionRef connection)
+{
+	STUB();
+	return CFDictionaryCreate(kCFAllocatorDefault, NULL, NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+}
+
+CFDictionaryRef SCNetworkConnectionCopyStatistics(SCNetworkConnectionRef connection)
+{
+	STUB();
+	return CFDictionaryCreate(kCFAllocatorDefault, NULL, NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+}
+
+SCNetworkServiceRef SCNetworkConnectionGetService(SCNetworkConnectionRef connection)
+{
+	STUB();
+	return NULL;
+}
+
+SCNetworkConnectionStatus SCNetworkConnectionGetStatus(SCNetworkConnectionRef connection)
+{
+	STUB();
+	return 0; // kSCNetworkConnectionInvalid
+}
